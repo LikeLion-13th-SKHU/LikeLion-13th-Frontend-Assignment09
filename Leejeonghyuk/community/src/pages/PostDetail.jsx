@@ -1,20 +1,33 @@
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import * as S from "../styles/PostDetail";
 
 const STORAGE_KEY = "myPosts";
 
 export default function PostDetail() {
   const { id } = useParams();
+  const navigate = useNavigate();
 
   const storedPosts = localStorage.getItem(STORAGE_KEY);
   const posts = storedPosts ? JSON.parse(storedPosts) : [];
   const post = posts.find((p) => String(p.id) === String(id));
 
+  const handleDelete = () => {
+    let currentPosts = storedPosts ? JSON.parse(storedPosts) : [];
+    const updatedPosts = currentPosts.filter(
+      (p) => String(p.id) !== String(id)
+    );
+    const updatedPostsString = JSON.stringify(updatedPosts);
+    localStorage.setItem("myPosts", updatedPostsString);
+
+    navigate(`/`);
+  };
   return (
     <>
       <S.Title>{post.title}</S.Title>
       <S.Divider />
       <S.Article>{post.content}</S.Article>
+      <button>수정</button>
+      <button onClick={handleDelete}>삭제</button>
     </>
   );
 }

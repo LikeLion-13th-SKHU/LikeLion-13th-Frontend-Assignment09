@@ -56,7 +56,6 @@ export default function PostWrite() {
             rows={8}
           />
         </S.Label>
-
         <S.Button type="submit">작성하기</S.Button>
       </S.Form>
     </>
