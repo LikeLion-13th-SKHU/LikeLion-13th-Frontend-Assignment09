@@ -26,6 +26,7 @@ export const CardLink = styled(Link)`
 `;
 
 export const CardTitle = styled.strong`
+  display: block;
   font-size: 18px;
   white-space: nowrap;
   overflow: hidden;
