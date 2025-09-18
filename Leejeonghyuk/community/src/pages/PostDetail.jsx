@@ -17,16 +17,20 @@ export default function PostDetail() {
       (p) => String(p.id) !== String(id)
     );
     const updatedPostsString = JSON.stringify(updatedPosts);
-    localStorage.setItem("myPosts", updatedPostsString);
+    localStorage.setItem(STORAGE_KEY, updatedPostsString);
 
     navigate(`/`);
+  };
+
+  const handleModify = () => {
+    navigate(`/update/${post.id}`);
   };
   return (
     <>
       <S.Title>{post.title}</S.Title>
       <S.Divider />
       <S.Article>{post.content}</S.Article>
-      <button>수정</button>
+      <button onClick={handleModify}>수정</button>
       <button onClick={handleDelete}>삭제</button>
     </>
   );
