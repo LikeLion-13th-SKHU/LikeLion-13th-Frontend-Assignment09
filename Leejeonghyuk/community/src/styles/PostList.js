@@ -22,13 +22,22 @@ export const CardLink = styled(Link)`
   color: inherit;
   text-decoration: none;
   display: block;
+  max-width: 720px;
 `;
 
 export const CardTitle = styled.strong`
   font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 720px;
 `;
 
 export const CardExcerpt = styled.p`
   margin: 6px 0 0;
   color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 720px;
 `;

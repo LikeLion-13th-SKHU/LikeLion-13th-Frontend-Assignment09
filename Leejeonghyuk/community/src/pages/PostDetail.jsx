@@ -30,8 +30,8 @@ export default function PostDetail() {
       <S.Title>{post.title}</S.Title>
       <S.Divider />
       <S.Article>{post.content}</S.Article>
-      <button onClick={handleModify}>수정</button>
-      <button onClick={handleDelete}>삭제</button>
+      <S.Btn onClick={handleModify}>수정</S.Btn>
+      <S.Btn onClick={handleDelete}>삭제</S.Btn>
     </>
   );
 }

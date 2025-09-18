@@ -12,3 +12,17 @@ export const Article = styled.p`
   white-space: pre-wrap;
   line-height: 1.6;
 `;
+
+export const Btn = styled.button`
+  text-decoration: none;
+  color: #b57f7f;
+  border: 1px solid #ccc;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: #fff;
+  margin: 24px 12px 0 0;
+  cursor: pointer;
+  &:hover {
+    background: #eee;
+  }
+`;
