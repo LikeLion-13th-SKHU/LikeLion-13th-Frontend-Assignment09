@@ -5,8 +5,6 @@ import * as S from "../styles/PostWrite";
 const STORAGE_KEY = "myPosts";
 
 export default function PostWrite() {
-  const [title, setTitle] = useState("");
-  const [content, setContent] = useState("");
   const navigate = useNavigate();
   const { id } = useParams();
 
@@ -14,15 +12,18 @@ export default function PostWrite() {
   const posts = storedPosts ? JSON.parse(storedPosts) : [];
   const post = posts.find((p) => String(p.id) === String(id));
 
+  const [title, setTitle] = useState(post.title);
+  const [content, setContent] = useState(post.content);
+
   const handleSubmit = () => {
-    // if (!post.title.trim()) {
-    //   alert("제목을 입력해주세요!");
-    //   return;
-    // }
-    // if (!post.content.trim()) {
-    //   alert("내용을 입력해주세요!");
-    //   return;
-    // }
+    if (!title.trim()) {
+      alert("제목을 입력해주세요!");
+      return;
+    }
+    if (!content.trim()) {
+      alert("내용을 입력해주세요!");
+      return;
+    }
 
     let currentPosts = storedPosts ? JSON.parse(storedPosts) : [];
     const updatedPosts = currentPosts.filter(
